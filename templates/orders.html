@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders</title>
+    <link rel="stylesheet" href="{% static 'css/orders.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>My Orders</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Django will render order details dynamically here -->
+            </tbody>
+        </table>
+        <div class="order-actions">
+            <a href="{% url 'cart' %}" class="btn">Go to Cart</a>
+            <a href="{% url 'payment' %}" class="btn checkout">Proceed to Payment</a>
+        </div>
+    </div>
+</body>
+</html>

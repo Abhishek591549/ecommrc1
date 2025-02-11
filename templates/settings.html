@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/settings.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Account Settings</h1>
+        <form method="POST" action="{% url 'settings' %}">
+            {% csrf_token %}
+            
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" value="{{ user.username }}" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{ user.email }}" required>
+
+            <label for="password">New Password:</label>
+            <input type="password" id="password" name="password">
+
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" id="confirm_password" name="confirm_password">
+
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" value="{{ user.profile.phone }}">
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address">{{ user.profile.address }}</textarea>
+
+            <button type="submit" class="btn save">Save Changes</button>
+        </form>
+        <a href="{% url 'dashboard' %}" class="btn back">Back to Dashboard</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">MyShop</div>
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'products' %}">Products</a></li>
+            <li><a href="{% url 'cart' %}">Cart</a></li>
+            <li><a href="{% url 'orders' %}">My Orders</a></li>
+            <li><a href="{% url 'payment' %}">Payment</a></li>
+            <li><a href="{% url 'settings' %}">Settings</a></li>
+            <li><a href="{% url 'logout' %}" class="logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="dashboard-container">
+        <h1>Welcome to Your Dashboard</h1>
+        <div class="dashboard-content">
+            <h2>Dashboard Overview</h2>
+            <p>Manage your orders, payments, and account settings all in one place.</p>
+            <div class="dashboard-actions">
+                <button onclick="location.href='{% url 'orders' %}'"><i class="fas fa-box"></i> View Orders</button>
+                <button onclick="location.href='{% url 'payment' %}'"><i class="fas fa-credit-card"></i> Make Payment</button>
+                <button onclick="location.href='{% url 'settings' %}'"><i class="fas fa-cog"></i> Account Settings</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
