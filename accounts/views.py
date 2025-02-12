@@ -55,17 +55,14 @@ def login_view(request):
     if request.method == "POST":
         email = request.POST.get("email")
         password = request.POST.get("password")
-
         user = authenticate(request, username=email, password=password)
-
-        if user is not None:  # ✅ Only log in if user exists
-           messages.error(request, "Invalid email or password.")  # ✅ Redirect to the dashboard
+        
+        if user is not None:
+            messages.error(request, "Invalid email or password.")  
         else:
             login(request, user)
             messages.success(request, "Login successful! Redirecting to Dashboard...")
-            print("✅ User authenticated and logged in:", user)  # Debugging
-            return redirect("/dashboard")  # Redirect to the dashboard
-            # ✅ Prevent AnonymousUser error
+            return redirect("dashboard")
 
     return render(request, "login.html")
 
