@@ -9,8 +9,6 @@ def about(request):
 def contact(request):
     return render(request, 'contact.html')
 
-def product(request):
-    return render(request, 'product.html')
 
 def testimonial(request):
     return render(request, 'testimonial.html')
