@@ -5,19 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+
+    <!-- ✅ Correctly linking the CSS file -->
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}"> 
+
+    <!-- Font Awesome for icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="logo">MyShop</div>
+        <div class="logo">ST AMLE</div>
         <ul class="nav-links">
-            <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
             <li><a href="{% url 'contact' %}">Contact</a></li>
-            <li><a href="{% url 'products' %}">Products</a></li>
-    
-            
+            <li><a href="{% url 'products' %}" id="product-link">Products</a></li>
             <li><a href="{% url 'orders' %}">My Orders</a></li>
             <li><a href="{% url 'payment' %}">Payment</a></li>
             <li><a href="{% url 'settings' %}">Settings</a></li>
@@ -25,17 +28,34 @@
         </ul>
     </nav>
 
+    <!-- Dashboard Container -->
     <div class="dashboard-container">
-        <h1>Welcome to Your Dashboard</h1>
-        <div class="dashboard-content">
+        <h1 class="fade-in">Welcome to Your Dashboard</h1>
+        <div class="dashboard-content slide-up">
             <h2>Dashboard Overview</h2>
             <p>Manage your orders, payments, and account settings all in one place.</p>
+            
             <div class="dashboard-actions">
-                <button onclick="location.href='{% url 'orders' %}'"><i class="fas fa-box"></i> View Orders</button>
-                <button onclick="location.href='{% url 'payment' %}'"><i class="fas fa-credit-card"></i> Make Payment</button>
-                <button onclick="location.href='{% url 'settings' %}'"><i class="fas fa-cog"></i> Account Settings</button>
+                <button class="btn-3d" onclick="location.href='{% url 'orders' %}'"><i class="fas fa-box"></i> View Orders</button>
+                <button class="btn-3d" onclick="location.href='{% url 'payment' %}'"><i class="fas fa-credit-card"></i> Make Payment</button>
+                <button class="btn-3d" onclick="location.href='{% url 'settings' %}'"><i class="fas fa-cog"></i> Account Settings</button>
             </div>
         </div>
     </div>
+
+    <!-- ✅ Corrected JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var productLink = document.getElementById("product-link");
+            if (productLink) {
+                productLink.addEventListener("click", function(event) {
+                    event.preventDefault(); // Prevent default navigation
+                    window.location.href = productLink.href; // Redirect correctly
+                });
+            }
+        });
+    </script>
+
 </body>
 </html>
+

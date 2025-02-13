@@ -50,3 +50,7 @@ def dashboard_view(request):
     }
     
     return render(request, '/dashboard.html', context)
+from django.shortcuts import render
+
+def product_list(request):
+    return render(request, 'products.html')

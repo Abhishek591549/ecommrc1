@@ -25,17 +25,16 @@ urlpatterns = [
     path('register/', views.register_view, name='register'),
     path('logout/', views.logout_view, name='logout'),
     path('', home_view, name='home'),  
-    path('products/', products_view, name='products'),
+    
    
     path('orders/', orders_view, name='orders'),
     path('payment/', payment_view, name='payment'),
      path('dashboard/', views.dashboard_view, name='dashboard'),  # ✅ Ensure this exists
      path('settings/', views.settings_view, name='settings'),
-      path("products/", product_view, name="product_page"), 
+       
       # Display products in product.html
  
-      path("products/", views.product_page, name="product_page"),  
-  
+    
    
    
     

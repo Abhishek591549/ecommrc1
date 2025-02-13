@@ -10,7 +10,8 @@ from django.urls import path
 urlpatterns = [
     path('', views.index, name='index'),
     path('contact/', contact_view, name='contact'),
-    path('dashboard/', views.dashboard_view, name='dashboard'), 
+    path('dashboard/', views.dashboard_view, name='dashboard'),
+      path('', views.product_list, name='products'), 
     
     #
    

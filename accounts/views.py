@@ -152,7 +152,7 @@ from .models import Product, CartItem  # Ensure these models exist in accounts/m
 def product_view(request):
     """ Display all products on a single page (product.html) """
     products = Product.objects.all()  
-    return render(request, "/product.html", {"products": products})
+    return render(request, "/products.html", {"products": products})
 
 @login_required
 def add_to_cart(request, product_id):
@@ -165,13 +165,13 @@ def add_to_cart(request, product_id):
         cart_item.save()
 
     messages.success(request, "Product added to cart successfully!")
-    return redirect("product_page")  # Redirect to the same product.html page
+    return redirect("products")  # Redirect to the same product.html page
 
 @login_required
 def view_cart(request):
     """ View all items in the cart """
     cart_items = CartItem.objects.filter(user=request.user)
-    return render(request, "accounts/product.html", {"products": Product.objects.all(), "cart_items": cart_items})
+    return render(request, "accounts/products.html", {"products": Product.objects.all(), "cart_items": cart_items})
 
 @login_required
 def remove_from_cart(request, cart_item_id):
@@ -179,8 +179,6 @@ def remove_from_cart(request, cart_item_id):
     cart_item = get_object_or_404(CartItem, id=cart_item_id, user=request.user)
     cart_item.delete()
     messages.success(request, "Item removed from cart.")
-    return redirect("product_page")  # Redirect to the same product.html page
+    return redirect("products")  # Redirect to the same product.html page
 from django.shortcuts import render
 
-def product_page(request):
-    return render(request, "product.html")  # ✅ Ensure 'product.html' exists in the templates folder
