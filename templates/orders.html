@@ -1,3 +1,4 @@
+{% load static %} 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,24 +9,50 @@
 </head>
 <body>
     <div class="container">
-        <h1>My Orders</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Status</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Django will render order details dynamically here -->
-            </tbody>
-        </table>
-        <div class="order-actions">
-            <a href="{% url 'cart' %}" class="btn">Go to Cart</a>
-            <a href="{% url 'payment' %}" class="btn checkout">Proceed to Payment</a>
+        <header>
+            <h1>My Orders</h1>
+        </header>
+
+        <div class="orders">
+            <div class="order-card">
+                <div class="order-header">
+                    <span class="order-id">Order ID: #12345</span>
+                    <span class="order-status">Delivered</span>
+                </div>
+                <div class="order-details">
+                    <img src="product1.jpg" alt="Product 1">
+                    <div class="product-info">
+                        <h3>Product Name 1</h3>
+                        <p>Quantity: 2</p>
+                        <p>Price: $50</p>
+                    </div>
+                </div>
+                <div class="order-footer">
+                    <span class="order-date">Ordered on: 2025-02-15</span>
+                    <button class="btn">Track Order</button>
+                </div>
+            </div>
+
+            <div class="order-card">
+                <div class="order-header">
+                    <span class="order-id">Order ID: #12346</span>
+                    <span class="order-status">Shipped</span>
+                </div>
+                <div class="order-details">
+                    <img src="product2.jpg" alt="Product 2">
+                    <div class="product-info">
+                        <h3>Product Name 2</h3>
+                        <p>Quantity: 1</p>
+                        <p>Price: $30</p>
+                    </div>
+                </div>
+                <div class="order-footer">
+                    <span class="order-date">Ordered on: 2025-02-10</span>
+                    <button class="btn">Track Order</button>
+                </div>
+            </div>
+
+            <!-- Add more orders here -->
         </div>
     </div>
 </body>

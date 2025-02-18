@@ -55,3 +55,37 @@ from django.shortcuts import render
 
 def productspage(request):  # Function name should be 'productspage'
     return render(request, 'productspage.html')  # Ensure template exists
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+ # Assuming you have an Order model
+
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from .models import Order  # Assuming you have an Order model
+
+@login_required
+def my_orders_view(request):
+    """Display all orders for the logged-in user."""
+    user = request.user
+    orders = Order.objects.filter(user=user)  # Fetch orders of the logged-in user
+
+    return render(request, 'accounts/orders.html', {'orders': orders})
+
+
+@login_required
+def order_details_view(request, order_id):
+    """Display details of a specific order."""
+    order = get_object_or_404(Order, id=order_id, user=request.user)
+
+    return render(request, 'accounts/order_details.html', {'order': order})
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from .models import Order  # Assuming you have an Order model
+
+@login_required
+def my_orders_view(request):
+    """Display all orders for the logged-in user."""
+    user = request.user
+    orders = Order.objects.filter(user=user)  # Fetch orders of the logged-in user
+
+    return render(request, 'orders.html', {'orders': orders})

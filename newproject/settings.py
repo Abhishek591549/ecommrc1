@@ -152,3 +152,4 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 LOGIN_URL = "login"  # Redirect anonymous users trying to access dashboard
 LOGIN_REDIRECT_URL = "/dashboard/"
+LOGIN_URL = '/login/'  # This will redirect to the login page if the user is not logged in
